@@ -4,5 +4,6 @@ document.querySelector(' #create-timer').addEventListener('click', addTimer);
 const timerInput = document.querySelector(' #time-input');
 function addTimer() {
     const initialTime = timerInput.value;
-    console.log(initialTime);
+    const timer = new Timer(initialTime);
+    console.log('timer', timer);
 }
