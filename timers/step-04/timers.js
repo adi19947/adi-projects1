@@ -1,10 +1,10 @@
+//Constructor function
 function Timer(initialTime) {
-    this.initialTime = initialTime;
+  this.initialTime = initialTime;
 
-    this.createTimer = function () {
-        const timeContainer = document.querySelector(' #timers-container');
-        timeContainer.innerHTML += '<div>new timer</div>'
-    }
+  this.createTimer = function () {
+    console.log('create timer');
+  };
 }
 
 export default Timer;
