@@ -36,28 +36,7 @@ export default function Timer(initialTime) {
     function deleteTimer() {
         timerElement.remove();
     }
-    /* 
-        function createStartButton() {
-            const startButton = document.createElement('button');
-            startButton.innerText = 'start';
-            timerElement.appendChild(startButton);
-            startButton.addEventListener('click', startTimer);
-        }
-    
-        function createDeleteButton() {
-            const deleteButton = document.createElement('button');
-            deleteButton.innerText = 'Delete';
-            timerElement.appendChild(deleteButton);
-            deleteButton.addEventListener('click', deleteTimer)
-    
-        }
-    
-        function createPauseButton() {
-            const pauseButton = document.createElement('button');
-            pauseButton.innerText = 'pause';
-            pauseButton.addEventListener('click', stopTimer);
-            timerElement.appendChild(pauseButton);
-        } */
+
 
     function createButton(buttonText, eventFunction) {
         const button = document.createElement('button');
@@ -73,14 +52,11 @@ export default function Timer(initialTime) {
 
 
     this.createTimer = function () {
-        console.log('create timer');
+
         timerElement = document.createElement('div');
 
-        createTimeView()
-        /*    createStartButton();
-           createPauseButton();
-           createDeleteButton(); 
-*/
+        createTimeView();
+        timeView.innerText = time;
         createButton('start', startTimer);
         createButton('pause', pauseTimer);
         createButton('Delete', deleteTimer);
