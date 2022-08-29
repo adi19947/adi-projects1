@@ -1,0 +1,94 @@
+export default function Timer(initialTime) {
+    let time = initialTime;
+    let timerElement;
+    let timeView;
+    let intervalId;
+    let isTimerRunning = false;
+
+    function displayTime() {
+        time--;
+        timeView.innerText = time;
+
+        if (time == 0) {
+            stopTimer();
+        }
+    }
+
+    function stopTimer() {
+        clearInterval(intervalId);
+        isTimerRunning = false;
+    }
+
+    function startTimer() {
+        if (isTimerRunning) {
+            return;
+        }
+        console.log('timer is started');
+        intervalId = setInterval(displayTime, 1000);
+        isTimerRunning = true;
+
+    }
+
+    function pauseTimer() {
+        console.log('pause');
+    }
+
+    function deleteTimer() {
+        timerElement.remove();
+    }
+    /* 
+        function createStartButton() {
+            const startButton = document.createElement('button');
+            startButton.innerText = 'start';
+            timerElement.appendChild(startButton);
+            startButton.addEventListener('click', startTimer);
+        }
+    
+        function createDeleteButton() {
+            const deleteButton = document.createElement('button');
+            deleteButton.innerText = 'Delete';
+            timerElement.appendChild(deleteButton);
+            deleteButton.addEventListener('click', deleteTimer)
+    
+        }
+    
+        function createPauseButton() {
+            const pauseButton = document.createElement('button');
+            pauseButton.innerText = 'pause';
+            pauseButton.addEventListener('click', stopTimer);
+            timerElement.appendChild(pauseButton);
+        } */
+
+    function createButton(buttonText, eventFunction) {
+        const button = document.createElement('button');
+        button.innerText = buttonText;
+        button.addEventListener('click', eventFunction);
+        timerElement.appendChild(button);
+    }
+
+    function createTimeView() {
+        timeView = document.createElement('span');
+        timerElement.appendChild(timeView);
+    }
+
+
+    this.createTimer = function () {
+        console.log('create timer');
+        timerElement = document.createElement('div');
+
+        createTimeView()
+        /*    createStartButton();
+           createPauseButton();
+           createDeleteButton(); 
+*/
+        createButton('start', startTimer);
+        createButton('pause', pauseTimer);
+        createButton('Delete', deleteTimer);
+
+
+        document.querySelector(' #timers-container').appendChild(timerElement);
+    };
+    console.log('my Timer');
+}
+
+
